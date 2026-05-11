@@ -10,6 +10,21 @@ const db = mysql.createConnection({
 db.connect(err => {
   if (err) throw err;
   console.log('MySQL Connected...');
+
+  // Auto-create table if not exists
+  const createTable = `
+    CREATE TABLE IF NOT EXISTS catatan (
+      id INT(11) NOT NULL AUTO_INCREMENT,
+      judul VARCHAR(255) DEFAULT NULL,
+      isi TEXT DEFAULT NULL,
+      tanggal_dibuat TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (id)
+    ) ENGINE=InnoDB
+  `;
+  db.query(createTable, (err) => {
+    if (err) console.error('Error creating table:', err);
+    else console.log('Table catatan ready');
+  });
 });
 
 module.exports = db;
