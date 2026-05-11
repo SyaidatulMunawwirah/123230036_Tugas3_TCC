@@ -1,5 +1,5 @@
 // GANTI URL DIBAWAH DENGAN URL CLOUD RUN BACKEND SETELAH DEPLOY
-const API = "https://BACKEND_CLOUD_RUN_URL/catatan";
+const API = "https://be-tugas3-tcc-036-433898248394.us-central1.run.app/catatan";
 
 async function getcatatan() {
   const res = await fetch(API);
