@@ -1,4 +1,5 @@
-const API = "http://localhost:3000/catatan";
+// GANTI URL DIBAWAH DENGAN URL CLOUD RUN BACKEND SETELAH DEPLOY
+const API = "https://BACKEND_CLOUD_RUN_URL/catatan";
 
 async function getcatatan() {
   const res = await fetch(API);
